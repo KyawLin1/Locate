@@ -96,7 +96,7 @@
 				TargetAttributes = {
 					E122C17D1F94521D005390AF = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = EBWK75HAK4;
+						DevelopmentTeam = EH5BAL5EWL;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -263,7 +263,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = EBWK75HAK4;
+				DEVELOPMENT_TEAM = EH5BAL5EWL;
 				INFOPLIST_FILE = Locate/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = KL.Locate;
@@ -276,7 +276,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = EBWK75HAK4;
+				DEVELOPMENT_TEAM = EH5BAL5EWL;
 				INFOPLIST_FILE = Locate/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = KL.Locate;
@@ -304,6 +304,7 @@
 				E122C1921F94521D005390AF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -27,6 +27,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, CBPeripheralM
         super.viewDidLoad()
         locationManager.delegate = self
         bluetoothManager.delegate = self
+        hideKeyboardWhenTappedAround()
         // Do any additional setup after loading the view, typically from a nib.
     }
     
@@ -63,7 +64,23 @@ class ViewController: UIViewController, CLLocationManagerDelegate, CBPeripheralM
         uuidTF.text = UserDefaults.standard.string(forKey: "uuid")
     }
     @IBAction func save(_ sender: UIButton) {
-        UserDefaults.standard.set(uuidTF.text!, forKey: "uuid")
+        if UserDefaults.standard.string(forKey: "uuid") != nil{
+            let alert = UIAlertController(title: "UUID exist", message: "Do you want to overwrite the previous uuid?", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action:UIAlertAction) in
+                switch action.style{
+                case .default:
+                    print("default")
+                    UserDefaults.standard.set(self.uuidTF.text!, forKey: "uuid")
+                case .cancel:
+                    print("cancel")
+                case .destructive:
+                    print("destructive")
+                }
+            }))
+            self.present(alert, animated: false, completion: nil)
+        }else{
+            UserDefaults.standard.set(uuidTF.text!, forKey: "uuid")
+        }
     }
     
     private func checkBluetooth(){
@@ -85,6 +102,18 @@ class ViewController: UIViewController, CLLocationManagerDelegate, CBPeripheralM
         let url = URL(string: "App-Prefs:root=Bluetooth") //for bluetooth setting
         let app = UIApplication.shared
         app.open(url!, options: ["string":""], completionHandler: nil)
+    }
+}
+
+extension UIViewController {
+    
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
     }
 }
 
